@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ع الفحم – اطلب دلوقتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFC21A;--r:#E4262C;--k:#111;--bg:#FFF6E0;--card:#fff;--tx:#111;--sh:#111;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1712;--card:#26211a;--tx:#fff6e0;--sh:#000}}
+:root[data-theme="dark"]{--bg:#1b1712;--card:#26211a;--tx:#fff6e0;--sh:#000}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,sans-serif;font-weight:600;padding-bottom:100px;overflow-x:hidden}
+.hero{background:var(--y);color:#111;text-align:center;padding:calc(34px + env(safe-area-inset-top,0px)) 16px 0;position:relative;overflow:hidden}
+.flame{width:74px;height:90px;animation:fl 1.2s ease-in-out infinite alternate;transform-origin:50% 100%}
+@keyframes fl{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.1,1.16) rotate(3deg)}}
+.hero h1{margin:0;font-size:clamp(76px,26vw,150px);font-weight:900;line-height:.95;letter-spacing:-2px}
+.hero h1 span{color:var(--r);display:inline-block;text-shadow:4px 4px 0 #111}
+.hero p{font-size:22px;font-weight:800;margin:8px 0 18px}
+.cta{display:inline-block;background:#111;color:var(--y);font:900 20px Cairo;border:0;padding:14px 34px;border-radius:50px;cursor:pointer;box-shadow:5px 5px 0 var(--r)}
+.cta:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--r)}
+.tick{margin-top:26px;background:#111;color:var(--y);overflow:hidden;white-space:nowrap;padding:10px 0;transform:rotate(-1.5deg) scale(1.04)}
+.tick div{display:inline-block;animation:mq 22s linear infinite;font:900 20px Cairo}
+@keyframes mq{to{transform:translateX(50%)}}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:700px;margin:26px auto 6px;padding:0 14px}
+.cats button{background:var(--card);color:var(--tx);border:3px solid #111;border-radius:16px;box-shadow:3px 3px 0 var(--sh);padding:14px 2px;font:900 14px Cairo;cursor:pointer}
+.cats button b{display:block;font-size:30px;line-height:1.2}
+main{max-width:700px;margin:0 auto;padding:0 14px}
+section{margin-top:30px;scroll-margin-top:12px}
+.sh{display:flex;align-items:center;gap:12px;border:3px solid #111;border-radius:18px;padding:12px 16px;box-shadow:5px 5px 0 var(--sh);color:#fff}
+.sh i{font-style:normal;font-size:44px;line-height:1}
+.sh h2{margin:0;font-size:32px;font-weight:900;line-height:1.1}
+.sh small{display:block;font-size:13px;font-weight:700;opacity:.9}
+.c0 .sh{background:var(--r)}.c1 .sh{background:#111;color:var(--y)}.c2 .sh{background:#F28A0F}.c3 .sh{background:#C21E24}
+.c4 .sh{background:#111;color:var(--y)}.c5 .sh{background:var(--r)}.c6 .sh{background:#F28A0F}.c7 .sh{background:#111;color:var(--y)}
+.it{display:flex;align-items:center;gap:10px;background:var(--card);border:3px solid #111;border-radius:14px;padding:10px 12px;margin-top:12px;box-shadow:3px 3px 0 var(--sh)}
+.it .n{flex:1;font-weight:800;font-size:16px;line-height:1.3}
+.it .p{background:var(--y);color:#111;font-weight:900;border-radius:10px;padding:3px 10px;white-space:nowrap;border:2px solid #111}
+.add,.qty button{background:var(--r);color:#fff;border:3px solid #111;width:40px;height:40px;border-radius:12px;font:900 22px Cairo;cursor:pointer;line-height:1}
+.qty{display:flex;align-items:center;gap:8px}.qty b{min-width:20px;text-align:center;font-size:18px}
+.qty button:first-child{background:#111;color:var(--y)}
+#bar{position:fixed;inset:auto 0 0 0;padding:10px 14px calc(12px + env(safe-area-inset-bottom,0px));display:none;z-index:6}
+#bar button{width:100%;max-width:700px;margin:auto;display:flex;justify-content:space-between;align-items:center;background:#111;color:var(--y);border:3px solid var(--y);border-radius:18px;padding:14px 20px;font:900 18px Cairo;cursor:pointer;box-shadow:0 6px 0 var(--r)}
+#bar em{background:var(--r);color:#fff;font-style:normal;border-radius:50%;min-width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+#sheet{position:fixed;inset:0;background:#000b;display:none;align-items:flex-end;justify-content:center;z-index:9}
+#box{background:var(--bg);width:100%;max-width:700px;max-height:94%;overflow:auto;border:4px solid #111;border-bottom:0;border-radius:26px 26px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+#box h3{margin:0 0 4px;font-size:30px;font-weight:900;color:var(--r)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 4px}
+.mode button{background:var(--card);color:var(--tx);border:3px solid #111;border-radius:16px;padding:12px 4px;font:900 16px Cairo;cursor:pointer;box-shadow:3px 3px 0 var(--sh)}
+.mode button b{display:block;font-size:30px}
+.mode button.on{background:var(--y);color:#111;box-shadow:none;transform:translate(3px,3px)}
+input,textarea{width:100%;background:var(--card);color:var(--tx);border:3px solid #111;border-radius:12px;padding:12px;font:700 16px Cairo;margin-top:10px}
+.note{font-size:13px;margin:8px 0 0;opacity:.8}
+.tot{display:flex;justify-content:space-between;font-weight:900;font-size:24px;margin:14px 0}
+#send{width:100%;background:#25D366;color:#fff;border:3px solid #111;border-radius:16px;padding:15px;font:900 19px Cairo;cursor:pointer;box-shadow:4px 4px 0 #111}
+#close{background:none;border:0;color:var(--tx);font:800 15px Cairo;margin-top:12px;width:100%;cursor:pointer;text-decoration:underline}
+footer{margin-top:44px;background:#111;color:var(--y);text-align:center;padding:30px 14px;font-weight:800;line-height:1.9}
+.cr{direction:ltr;margin:26px auto 0;padding-top:18px;border-top:1px solid #2e2e2e;display:flex;flex-direction:column;align-items:center;gap:6px}.cr span{font:600 10px Cairo,sans-serif;letter-spacing:.38em;text-transform:uppercase;color:#7d7466}.cr a{display:inline-flex;align-items:center;gap:6px;font:800 15px Cairo,sans-serif;letter-spacing:.06em;color:#fff6e0;text-decoration:none;padding:0;border:0;border-bottom:1px solid transparent;transition:.25s}.cr a i{font-style:normal;color:var(--y);transition:.25s}.cr a:hover{color:var(--y)}.cr a:hover i{transform:translate(2px,-2px)}
+footer b{display:block;font-size:40px;font-weight:900;color:var(--r)}
+</style>
+</head>
+<body>
+<div class="hero">
+<svg class="flame" viewBox="0 0 74 90"><path d="M37 2C40 22 66 34 66 58a29 29 0 0 1-58 0c0-14 8-22 14-30 2 10 6 14 10 15C30 30 32 16 37 2Z" fill="#E4262C" stroke="#111" stroke-width="4"/><path d="M37 46c3 9 14 14 14 26a14 14 0 0 1-28 0c0-8 6-12 9-16 1 4 3 6 5 6 0-6-1-10 0-16Z" fill="#FFC21A" stroke="#111" stroke-width="3"/></svg>
+<h1><span>ع</span>الفحم</h1>
+<p>كل اللي تحبه ع الفحم</p>
+<button class="cta" onclick="go(0)">اطلب دلوقتي</button>
+<div class="tick"><div id="tk"></div></div>
+</div>
+<div class="cats" id="cats"></div>
+<main id="menu"></main>
+<footer><b>ع الفحم</b>كفر الدوار – مساكن البيضا<br>01062298270 · 01206677982 · 01153866472<div class="cr"><span>Design &amp; Development</span><a href="https://instagram.com/omarrabouzaid" target="_blank" rel="noopener">@omarrabouzaid</a></div></footer>
+<div id="bar"><button onclick="openSheet()"><span><em id="cnt"></em></span><span>كمّل الطلب</span><span id="sum"></span></button></div>
+<div id="sheet"><div id="box">
+<h3>طلبك</h3><div id="lines"></div>
+<div class="tot"><span>الإجمالي</span><span id="tot"></span></div>
+<div class="mode"><button id="m1" class="on" onclick="mode(1)">توصيل</button><button id="m2" onclick="mode(2)">استلام من الفرع</button></div>
+<input id="nm" placeholder="الاسم"><input id="ph" type="tel" placeholder="رقم الموبايل">
+<input id="ad" placeholder="العنوان بالتفصيل">
+<p class="note" id="nd">رسوم التوصيل بتتحدد حسب منطقتك وهنأكدها معاك على واتساب.</p>
+<p class="note" id="np" style="display:none">الفرع: كفر الدوار – مساكن البيضا</p>
+<textarea id="nt" rows="2" placeholder="ملاحظات (اختياري)"></textarea>
+<div style="height:14px"></div>
+<button id="send" onclick="send()">ابعت الطلب على واتساب</button>
+<button id="close" onclick="closeSheet()">رجوع للمنيو</button>
+</div></div>
+<script>
+var WA="201153866472"; // رقم الواتساب
+var D=[
+["الرول السوري","🌯",null,[["كفتة",80],["بانيه",85],["شاورما فراخ",85],["شاورما لحمة",110],["سجق إسكندراني",70],["سجق مشوي",75],["كبدة إسكندراني",70],["شيش رانش",85],["لحمة مشوية",115],["بطاطس",30]]],
+["الحرشة","🥖","عيش فينو",[["كبدة إسكندراني رجالي",17],["كبدة إسكندراني حريمي",17],["سجق إسكندراني رجالي",20],["سجق إسكندراني حريمي",20]]],
+["السندوتشات","🥙",null,[["كفتة",50],["كفتة دابل",80],["لحمة مشوية",80],["طرب",80],["بانيه مشوي",50],["شيش رانش",55],["سجق",50]]],
+["الحواوشي","🥪",null,[["حواوشي لحمة",50],["حواوشي لحمة ميكس جبن",70],["حواوشي فراخ",55],["حواوشي فراخ ميكس جبن",70],["حواوشي سجق",50],["حواوشي سجق ميكس جبن",70],["حواوشي ميكس لحمة وسجق",80],["حواوشي ميكس لحمة وسجق ميكس جبن",90],["حواوشي ميكس لحوم",85],["حواوشي ميكس لحوم ميكس جبن",95]]],
+["المشويات","🍖","السعر للنصف كيلو والكيلو",[["كفتة",240,450],["لحمة مشوية",350,650],["سجق مشوي",225,440],["طرب",300,550],["شيش طاووق",220,400],["بانيه مشوي",220,400],["مشكل مشاوي",380,700]]],
+["الفراخ المشوية","🍗","مخلية من العظم",[["فرخة كاملة",340],["نصف فرخة",180],["ربع فرخة",100]]],
+["الوجبات","🍱",null,[["وجبة ربع فرخة + كفتة",150],["وجبة نصف فرخة + كفتة",240],["وجبة كفتة",135],["وجبة شيش",135],["وجبة بانيه",135],["وجبة كفتة وشيش",150]]],
+["الإضافات","🍟",null,[["باكيت بطاطس",20],["طحينة",20],["ثومية",20],["مخلل",5],["باربيكيو",20],["رانش",25],["طبق أرز",40]]]
+];
+var cart={},items={},html="",cats="",md=1;
+document.getElementById("tk").textContent=Array(12).join(" كفتة ● حواوشي ● مشويات ● رول ● فراخ ");
+D.forEach(function(c,ci){
+ cats+='<button onclick="go('+ci+')">'+c[0]+'</button>';
+ html+='<section class="c'+ci+'" id="s'+ci+'"><div class="sh"><div><h2>'+c[0]+'</h2>'+(c[2]?'<small>'+c[2]+'</small>':'')+'</div></div>';
+ c[3].forEach(function(r,i){
+  var vs=r.length>2?[[" (نصف كيلو)",r[1]],[" (كيلو)",r[2]]]:[["",r[1]]];
+  vs.forEach(function(v,vi){
+   var id=ci+"_"+i+"_"+vi;items[id]={n:r[0]+v[0],p:v[1]};
+   html+='<div class="it"><span class="n">'+r[0]+v[0]+'</span><span class="p">'+v[1]+' ج</span><span id="c'+id+'"></span></div>';
+  });
+ });
+ html+='</section>';
+});
+document.getElementById("cats").innerHTML=cats;
+document.getElementById("menu").innerHTML=html;
+function go(i){document.getElementById("s"+i).scrollIntoView({behavior:"smooth"})}
+function ctl(id){
+ var q=cart[id]||0,e=document.getElementById("c"+id);
+ if(!e)return;
+ e.innerHTML=q?'<span class="qty"><button onclick="chg(\''+id+'\',-1)">−</button><b>'+q+'</b><button onclick="chg(\''+id+'\',1)">+</button></span>':'<button class="add" onclick="chg(\''+id+'\',1)">+</button>';
+}
+Object.keys(items).forEach(ctl);
+function chg(id,d){
+ cart[id]=Math.max(0,(cart[id]||0)+d);if(!cart[id])delete cart[id];
+ ctl(id);upd();
+}
+function total(){var t=0,n=0;for(var k in cart){t+=cart[k]*items[k].p;n+=cart[k]}return [t,n]}
+function upd(){
+ var r=total();
+ document.getElementById("bar").style.display=r[1]?"block":"none";
+ document.getElementById("cnt").textContent=r[1];
+ document.getElementById("sum").textContent=r[0]+" ج";
+ if(document.getElementById("sheet").style.display=="flex"){if(!r[1])closeSheet();else lines()}
+}
+function lines(){
+ var h="";
+ for(var k in cart)h+='<div class="it"><span class="n">'+items[k].n+'</span><span class="qty"><button onclick="chg(\''+k+'\',-1)">−</button><b>'+cart[k]+'</b><button onclick="chg(\''+k+'\',1)">+</button></span><span class="p">'+cart[k]*items[k].p+' ج</span></div>';
+ document.getElementById("lines").innerHTML=h;
+ document.getElementById("tot").textContent=total()[0]+" ج";
+}
+function mode(m){
+ md=m;
+ document.getElementById("m1").className=m==1?"on":"";
+ document.getElementById("m2").className=m==2?"on":"";
+ document.getElementById("ad").style.display=m==1?"block":"none";
+ document.getElementById("nd").style.display=m==1?"block":"none";
+ document.getElementById("np").style.display=m==2?"block":"none";
+}
+function openSheet(){lines();document.getElementById("sheet").style.display="flex"}
+function closeSheet(){document.getElementById("sheet").style.display="none"}
+function send(){
+ var nm=document.getElementById("nm").value.trim(),ph=document.getElementById("ph").value.trim(),ad=document.getElementById("ad").value.trim(),nt=document.getElementById("nt").value.trim();
+ if(!nm||!ph||(md==1&&!ad)){alert(md==1?"اكتب الاسم والموبايل والعنوان":"اكتب الاسم والموبايل");return}
+ var m="🔥 طلب جديد - ع الفحم\n"+(md==1?"🛵 توصيل":"🏪 استلام من الفرع")+"\n\n";
+ for(var k in cart)m+="• "+items[k].n+" × "+cart[k]+" = "+cart[k]*items[k].p+" ج\n";
+ m+="\n💰 الإجمالي: "+total()[0]+" ج"+(md==1?" (غير شامل التوصيل)":"")+"\n\n👤 "+nm+"\n📞 "+ph;
+ if(md==1)m+="\n📍 "+ad;
+ if(nt)m+="\n📝 "+nt;
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),"_blank");
+}
+</script>
+</body>
+</html>
